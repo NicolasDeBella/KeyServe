@@ -1,0 +1,363 @@
+
+/*Desplazamiento suave*/
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+    display: flexbox;
+    background-color: #F7F7F7;
+    font-family: "BBH Sans Bartle", sans-serif;
+    font-weight: 10;
+    font-style: normal;
+}
+/*
+======================
+Seccion Navegacion
+======================*/
+header{
+   top: 0;
+   background-color: #f7f7f7b4;
+   margin: 0 auto;
+   border-bottom: 0.5px solid rgb(230, 230, 230);
+   position: sticky;
+}
+nav{
+    display: flex;
+    justify-content: center;
+}
+/*
+====================================
+Menu desplegable para el responsive
+====================================
+*/
+#menu-toggle {
+  display: none;
+}
+
+
+#menu-links {
+    display: none;
+}
+#div-nav{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 99%;
+    justify-content: space-between;
+}
+#div-titulo-e-imagen{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+#div-titulo-e-imagen a{
+    text-decoration: none;
+    color: white;
+}
+#div-titulo-e-imagen h1{
+    text-decoration: none;
+    color: white;
+    background-color: #0078D7;
+    font-size: 1vw;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img{
+    width: 4vw;
+}
+#titulo-nav{
+    display: flex;
+    justify-content: left;
+}
+
+
+/*Division de incio, sobre nosotros etc.*/
+#div-ul-li{
+    display: inline-flex;
+    justify-content: right;
+    align-items: center;
+}
+#div-ul-li ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+#div-ul-li ul a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+}
+#div-ul-li ul a:hover{
+    text-decoration: none;
+    color: #0078D7;
+}
+
+/*
+==================================================================
+Seccion Central, titulo y campo de texto donde se pone el nombre 
+==================================================================
+*/
+#sect-titulo-central h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8vw;
+    width: 100%;
+    margin-top: 150px;
+    margin-bottom: 0;
+}
+#span-titulo-disk{
+    display: flex;
+    color:#0078D7;
+}
+#parrafo-titulo-central{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5vw;
+    color : #393E46;
+}
+#parrafo-titulo-ingresa-nombre{
+    display: flex;
+    justify-content: center;
+    font-size: 2vw;
+    margin-top: 10px;
+    color: rgba(128, 128, 128, 0.541);
+}
+
+#div-form-nombre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#form-nombre{
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;              
+    align-items: center;   
+}
+
+/* Input */
+#input-nombre{
+    width: 350px;
+    height: 60px;
+    font-size: 30px;
+}
+
+/* Botón */
+#boton-ingresar{
+    background-color: #0078D7;
+    color: white; 
+    border: none;
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 155px;
+    height: 60px;
+}
+
+#boton-ingresar:hover{
+    background-color: #004479;
+}
+s
+/*
+==================================================================
+Seccion PARRAFO SOBRE NOSOTROS... (QUIENES SOMOS Y COMO COMPRAR)
+==================================================================
+*/
+
+#sect-sobre-nosotros , #sect-como-comprar{
+    display: block;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+#sect-sobre-nosotros h2,#sect-como-comprar h2{
+    font-size: 1.7rem;
+    display: flex;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    margin-bottom: 20px;
+    color: #0078D7;
+}
+#span-sobre-nosotros-parrafo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sect-sobre-nosotros p,#sect-como-comprar p{
+    font-size: 1rem;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(36, 35, 35);
+}
+
+
+/*
+=================
+footer... 
+=================
+*/
+footer{
+    display: flex;
+    bottom:0;
+    width: 100%;
+    justify-content: bottom;
+    align-items: bottom;
+    color: gray;
+    font-size: 12px;
+}
+
+/*
+==========================
+    LISTAR-PRODUCTOS.JS
+==========================
+*/
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.titulo-productos{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0078D7;
+}
+
+.card-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    background-color: #f8f8f8;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.card-producto:hover {
+    transform: scale(1.05);
+}
+
+.card-producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* TIPOGRAFIA CARDS PRODUCTOS */
+.card-producto {
+    font-family: "BBH Sans Bartle", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #242424;
+}
+
+.card-producto h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #0078D7;
+}
+
+.card-producto p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #393E46;
+}
+
+.card-producto button {
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: "BBH Sans Bartle", sans-serif;
+}
+
+.card-producto button:hover {
+    background-color: #004479;
+}
+
+
+/* 
+RESPONSIVE 
+nota: tener en cuenta que lo responsive va abajo del css por que si no causa conflicto.
+ */
+
+
+@media (max-width: 768px) {
+  /* Mostrar la barrita togle */
+  #menu-toggle {
+    display: block;
+    margin-left: auto; 
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+  }
+  /* Ocultar menú por defecto */
+  #menu-links {
+    display: none;
+  }
+  #div-ul-li{
+    display: none;
+  }
+  /*Menu activo, resposnive*/
+  #menu-links.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 95%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  #menu-links li {
+    margin-bottom: 10px;
+  }
+  #menu-links li a {
+    color: black;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+  #menu-links li a:hover {
+    color: #0078D7;
+  }
+  #div-nav {
+    position: relative;
+  }
+  #logo img{
+        width: 10vw;
+  }
+  #div-titulo-e-imagen h1{
+    text-decoration: none;
+    color: white;
+    background-color: #0078D7;
+    font-size: 5vw;
+  }
+}
