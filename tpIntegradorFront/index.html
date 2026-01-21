@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP Integrador</title>
+
     <!-- Estilo ! !!! -->
     <link rel="stylesheet" href="css\styles.css">
-    
-    <!-- JS !!! -->
-    <script src="js/main.js" type="module" defer></script>
 
+    <!--Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fuente principal -->
     <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +21,6 @@
     <header>
         <nav>
             <div id="div-nav">
-                
                 <div id="div-titulo-e-imagen">
                     <span id="logo"><a href="index.html"><img src="img/logo.png" alt=""></a></span>
                     <a href="index.html"><h1>PixelDisk!</h1></a>
@@ -31,25 +31,24 @@
                 <div id="div-ul-li">
                     <ul>
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
                         <li><a href="#sect-sobre-nosotros">Sobre nosotros</a></li>
+                        <li><a onclick="redireccionaLogin()" ><img id="avatar-login" src="img\avatar.png" alt=""></a></li>
                     </ul>
                 </div>
 
                 <!-- Menú móvil // Posibilidad de enganchar un boton que muestre el carrito, desplegable. -->
                  <div id="menu-links">
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#sect-sobre-nosotros">Sobre nosotros</a></li>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#titulo-sobre-nosotros">Sobre nosotros</a></li>
+                        <li><a onclick="redireccionaLogin()" ><img src="img\avatar.png" alt=""></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     
-    <main id="main-content">
-        
+    <main>
         <section id="sect-titulo-central">
             <h1 id="titulo-central">
                 Pixel<span id="span-titulo-disk">Disk</span>
@@ -84,8 +83,10 @@
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure quaerat deleniti distinctio tempore ut delectus qui maxime necessitatibus magni officiis, vero nemo quisquam, quam eligendi ratione eos aperiam soluta illum!
             </p></span>
         </section>
-
     </main> 
+
+    <script src="./js/index.js"></script>
+
     <footer>
         <p>&copy; 2025 Bianucci & De Bella.</p>
     </footer>

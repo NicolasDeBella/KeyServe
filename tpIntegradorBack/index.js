@@ -1,54 +1,37 @@
 import express from 'express';
-import enviroments from './src/api/config/enviroments.js';
-import connection from './src/api/database/db.js';
-import cors from "cors";
-
 const app = express();
 
+import enviroments from './src/api/config/enviroments.js';
 const PORT = enviroments.port;
+
+import cors from "cors";
+import { loggerUrl } from "./src/api/middlewares/middlewares.js"
+import { productRoutes, viewRoutes } from "./src/api/routes/index.js";
+import { join, __dirname } from './src/api/utils/index.js';
 
 /*=================
     Middlewares
 ===================*/
 app.use(cors());
+app.use(express.json());
+app.use(loggerUrl);
 
+//Middleware para servir archivos estaticos
+app.use(express.static(join(__dirname, "src/public")));
 
 /*=================
-    Endpoints
+    Configuracion
 ===================*/
+app.set("view engine", "ejs");//Configuramos EJS como motor de plantillas
+app.set("views", join(__dirname, "src/views"));//Indicamos la ruta de las vistas
 
-//Ruta principal
-app.get("/", (req, res) => {
-    res.send("Bienvenido al TP Integrador");
-});
+/*=================
+    Rutas
+===================*/
+app.use("/api/products", productRoutes);
 
-//Ruta traer productos
-app.get("/products", async (req, res) => {
+app.use("/", viewRoutes);
 
-    try {
-        const sql = "SELECT * FROM productos";
-        const [rows] = await connection.query(sql);
-        
-        res.status(200).json({
-            payload: rows
-        })
-    } catch (error) {
-
-        console.error("Error en /products:", error.message);
-        res.status(500).json({ message: "Error interno al obtener productos"});
-    }
-});
-
-// Get product by ID
-app.get("/products/:id", async (req, res) => {
-    try {
-        let { id } = req.params;
-
-        
-    } catch (error) {
-        console.error('Error obtiniendo prodctos con id ${id}', error.message)
-    }
-})
 
 app.listen(PORT, () => {
     console.log(`servidor corriendo en el puerto ${PORT}`);
