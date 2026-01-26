@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>Catálogo de Productos</title>
+    <!-- Tailwind (dev) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind config -->
+    <script src="js/tailwind-config.js"></script>
+    <!-- Global styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111717] dark:text-white min-h-screen">
+
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#f0f4f4] dark:border-white/10 px-6 lg:px-40 py-4">
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between">
+
+            <div class="flex items-center gap-3">
+                <div class="bg-primary p-2 rounded-lg text-white">
+                    <span class="material-symbols-outlined text-2xl">desktop_windows</span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight">Catálogo de Software</h1>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-[1200px] mx-auto px-6 lg:px-40 py-8">
+
+        <!-- Navigation Tabs -->
+        <div class="mb-8">
+            <div class="flex gap-10 border-b border-[#dce4e5] dark:border-white/10">
+                <button id="tab-windows" class="border-b-[3px] border-primary pb-4 pt-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">window</span>
+                    <span class="text-sm font-bold">Windows</span>
+                </button>
+                <button id="tab-office"
+                    class="pb-4 pt-2 flex items-center gap-2 text-[#648487] dark:text-gray-400 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="text-sm font-bold">Office</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="seccion-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-16 flex justify-center">
+            <nav class="flex gap-1">
+                <a class="size-10 flex items-center justify-center rounded-lg hover:bg-primary/10">
+                    <span class="material-symbols-outlined text-gray-500">chevron_left</span>
+                </a>
+                <a class="size-10 flex items-center justify-center bg-primary text-white font-bold rounded-lg">1</a>
+                <a class="size-10 flex items-center justify-center text-gray-500 hover:bg-primary/10 rounded-lg">2</a>
+                <a class="size-10 flex items-center justify-center text-gray-500 hover:bg-primary/10 rounded-lg">3</a>
+                <a class="size-10 flex items-center justify-center text-gray-500 hover:bg-primary/10 rounded-lg">4</a>
+                <a class="size-10 flex items-center justify-center rounded-lg hover:bg-primary/10">
+                    <span class="material-symbols-outlined text-gray-500">chevron_right</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Floating Cart Button -->
+    <div class="fixed bottom-8 right-8 z-[100]">
+        <button
+            class="flex items-center gap-3 bg-primary text-white px-6 py-4 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all group">
+            <div class="relative">
+                <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                <span
+                    class="absolute -top-2 -right-2 size-5 flex items-center justify-center rounded-full bg-red-500 text-[10px] font-bold">
+                    1
+                </span>
+            </div>
+            <span class="font-bold text-sm uppercase tracking-wider">Ver Carrito</span>
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                arrow_forward
+            </span>
+        </button>
+    </div>
+
+    <!-- Page script -->
+    <script src="js/catalogo.js"></script>
+</body>
+
+</html>

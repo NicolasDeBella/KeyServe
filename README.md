@@ -1,4 +1,4 @@
-# 🧾 ServicePoint  
+# 🧾 KeyServe
 ### Sistema de Venta de Licencias — *Windows & Microsoft Office*
 
 > Aplicación web **full stack** que simula un **punto de venta autoservicio digital** para la comercialización de licencias de software Microsoft, replicando flujos reales de negocio, validación y administración.
@@ -7,7 +7,7 @@
 
 ## 📌 Descripción general
 
-**ServicePoint** es una aplicación web pensada para funcionar tanto en **dispositivos móviles como de escritorio**, que reproduce el flujo completo de un **kiosco de autoservicio**:
+**KeyServe** es una aplicación web pensada para funcionar tanto en **dispositivos móviles como de escritorio**, que reproduce el flujo completo de un **kiosco de autoservicio**:
 
 - selección de productos  
 - gestión de carrito  
@@ -170,4 +170,3 @@ El sistema está dividido en dos módulos que conviven en el mismo servidor:
 **Nicolás**  
 Desarrollador Full Stack Jr.  
 
-> Proyecto académico desarrollado bajo requerimientos extensos, simulando un entorno real de negocio, testing y validación funcional.

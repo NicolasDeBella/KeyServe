@@ -1,99 +1,27 @@
+// Limpiar nombre anterior al entrar al index
 sessionStorage.removeItem("nombreUsuario");
-/*=====================
-  VARIABLES DEL DOM
-=======================*/
-const menuToggle = document.getElementById("menu-toggle");
-const menuLinks = document.getElementById("menu-links");
-const formularioNombre = document.getElementById("form-nombre");
 
-/*=====================
-  MENU RESPONSIVE
-=======================*/
-menuToggle.addEventListener("click", () => {menuLinks.classList.toggle("active");});
+document.addEventListener("DOMContentLoaded", () => {
+    const btnIngresar = document.getElementById("btnIngresar");
+    const inputNombre = document.querySelector("input[type='text']");
 
-// Cerrar al hacer clic en un enlace
-document.querySelectorAll("#menu-links a").forEach(link => {
-  link.addEventListener("click", () => {menuLinks.classList.remove("active");});
-});
-
-
-/*===================
-    FUNCIONES
-=====================*/
-//Formulario para ingresar el nombre y mostrar los productos
-formularioNombre.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const nombreUsuario = document.getElementById("input-nombre").value;
-    
-    // Regex para permitir solo letras (incluye acentos y ñ)
-    const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$/;
-
-    // Validación: debe tener al menos un caracter y pasar el regex
-    if (!nombreUsuario || !regexNombre.test(nombreUsuario)) {
-        alert("Por favor, ingresa un nombre válido (solo letras).");
+    if (!btnIngresar || !inputNombre) {
+        console.error("No se encontraron los elementos necesarios");
         return;
     }
 
-    // Guardar en sessionStorage
-    sessionStorage.setItem("nombreUsuario", nombreUsuario);
-    
-    // Redirigir a la página de productos
-    window.location.href = "listarProductos.html";
+    btnIngresar.addEventListener("click", () => {
+        const nombreUsuario = inputNombre.value.trim();
+
+        if (nombreUsuario === "") {
+            alert("Por favor, ingresá tu nombre");
+            return;
+        }
+
+        // Guardar nombre
+        sessionStorage.setItem("nombreUsuario", nombreUsuario);
+
+        // Redirigir
+        window.location.href = "catalogo.html";
+    });
 });
-
-
-
-
-//Logueo temporal de admin
-function redireccionaLogin() {
-     main.innerHTML = `
-        <section id="sect-login">
-            <h1 id="titulo-login">Bienvenido</h1>
-            <p id="parrafo-login">Ingresar usuario y contraseña</p>
-
-            <form id="form-login" onsubmit="logueoAdmin(); return false;">
-                <div class="input-login">
-                    <input type="text" id="input-usuario" placeholder="Usuario" required>
-                </div>
-                <div class="input-login">
-                    <input type="password" id="input-password" placeholder="Contraseña" required>
-                </div>
-                <div class="boton-login">
-                    <button type="submit" id="boton-login">Ingresar</button>
-                </div>
-            </form>
-        </section>
-    `;
-}
-
-//Funcion temporal para logueo admin (falta completar logica de usuario y contraseña) muestra el CRUD luego de loguearse.
-function logueoAdmin(){
-    main.innerHTML = `<section id="sect-bienvenida">
-                        <h1 id="titulo-bienvenida">Bienvenido ADMIN !</h1>
-                    </section>
-            <section id="sect-crud">
-            <ul id="listado-crud">
-                <a href="index.html">
-                    <li class="links-header"><span>GET</span></li>
-                </a>
-                <a href="get.html">
-                    <li class="links-header"><span>Get : id</span></li>
-                </a>
-                <a href="post.html">
-                    <li class="links-header"><span>POST</span></li>
-                </a>
-                <a href="put.html">
-                    <li class="links-header"><span>PUT</span></li>
-                </a>
-                <a href="delete.html">
-                    <li class="links-header"><span>DELETE</span></li>
-                </a>
-            </ul>
-
-    </header>`;
-
-}
-
-// Permitir que los botones HTML pueda llamar funciones.
-window.redireccionaLogin = redireccionaLogin;

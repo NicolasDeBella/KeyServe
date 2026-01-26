@@ -1,0 +1,116 @@
+// =======================
+// VARIABLES
+// =======================
+let productosBackend = [];
+const contenedorProductos = document.getElementById("seccion-productos");
+
+// =======================
+// SEGURIDAD USUARIO
+// =======================
+function verificarUsuario() {
+    const nombreUsuario = sessionStorage.getItem("nombreUsuario");
+    if (!nombreUsuario) {
+        window.location.href = "index.html";
+    }
+}
+
+// =======================
+// CARGAR PRODUCTOS
+// =======================
+async function cargarProductos() {
+    try {
+        const response = await fetch("http://localhost:3000/api/products");
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Error al obtener productos");
+        }
+
+        productosBackend = data.payload;
+
+        // Vista inicial
+        filtrarPorCategoria("windows");
+
+    } catch (error) {
+        console.error("Error al cargar productos:", error);
+    }
+}
+
+// =======================
+// RENDER PRODUCTOS
+// =======================
+function mostrarProductos(productos) {
+    contenedorProductos.innerHTML = "";
+
+    productos.forEach(prod => {
+        contenedorProductos.innerHTML += `
+            <div class="bg-white dark:bg-background-dark/60 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 overflow-hidden">
+                <img src="${prod.imagen_url}" alt="${prod.nombre}" class="w-full object-contain">
+
+                <div class="p-6 space-y-3">
+                    <h3 class="font-bold text-lg">${prod.nombre}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 h-20 overflow-y-auto">
+                        ${prod.descripcion}
+                    </p>
+
+                    <button class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:scale-[1.02] transition-all">
+                        Agregar al carrito
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// =======================
+// FILTRO POR CATEGORIA
+// =======================
+function filtrarPorCategoria(categoria) {
+    const categoriaNormalizada = categoria.toLowerCase();
+
+    const productosFiltrados = productosBackend.filter(prod =>
+        prod.categoria?.trim().toLowerCase() === categoriaNormalizada
+    );
+
+    mostrarProductos(productosFiltrados);
+}
+
+
+// =======================
+// TABS ACTIVOS
+// =======================
+function activarTab(tabActivoId) {
+    const tabs = ["tab-windows", "tab-office"];
+
+    tabs.forEach(id => {
+        const tab = document.getElementById(id);
+        tab.classList.remove("border-b-[3px]", "border-primary", "text-primary");
+    });
+
+    document
+        .getElementById(tabActivoId)
+        .classList.add("border-b-[3px]", "border-primary", "text-primary");
+}
+
+// =======================
+// EVENTOS
+// =======================
+document.getElementById("tab-windows")
+    .addEventListener("click", () => {
+        filtrarPorCategoria("windows");
+        activarTab("tab-windows");
+    });
+
+document.getElementById("tab-office")
+    .addEventListener("click", () => {
+        filtrarPorCategoria("office");
+        activarTab("tab-office");
+    });
+
+// =======================
+// INIT
+// =======================
+document.addEventListener("DOMContentLoaded", () => {
+    verificarUsuario();
+    cargarProductos();
+});
