@@ -6,7 +6,7 @@ const PORT = enviroments.port;
 
 import cors from "cors";
 import { loggerUrl } from "./src/api/middlewares/middlewares.js"
-import { productRoutes, viewRoutes } from "./src/api/routes/index.js";
+import { productRoutes, viewRoutes, pedidosRoutes } from "./src/api/routes/index.js";
 import { join, __dirname } from './src/api/utils/index.js';
 
 /*=================
@@ -15,6 +15,7 @@ import { join, __dirname } from './src/api/utils/index.js';
 app.use(cors());
 app.use(express.json());
 app.use(loggerUrl);
+
 
 //Middleware para servir archivos estaticos
 app.use(express.static(join(__dirname, "src/public")));
@@ -32,6 +33,7 @@ app.use("/api/products", productRoutes);
 
 app.use("/", viewRoutes);
 
+app.use("/api/pedidos", pedidosRoutes);
 
 app.listen(PORT, () => {
     console.log(`servidor corriendo en el puerto ${PORT}`);

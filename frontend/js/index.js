@@ -1,7 +1,18 @@
-// Limpiar nombre anterior al entrar al index
+// =======================
+// LIMPIEZA DE SESIÓN
+// =======================
+// Al entrar al index se borra sesión previa
 sessionStorage.removeItem("nombreUsuario");
+localStorage.removeItem("carrito");
 
+// =======================
+// INIT
+// =======================
 document.addEventListener("DOMContentLoaded", () => {
+
+    // =======================
+    // ELEMENTOS DOM
+    // =======================
     const btnIngresar = document.getElementById("btnIngresar");
     const inputNombre = document.querySelector("input[type='text']");
 
@@ -10,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    // =======================
+    // EVENTO INGRESAR
+    // =======================
     btnIngresar.addEventListener("click", () => {
         const nombreUsuario = inputNombre.value.trim();
 
@@ -18,10 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Guardar nombre
+        // Guardar nombre de usuario
         sessionStorage.setItem("nombreUsuario", nombreUsuario);
 
-        // Redirigir
+        // Redirigir al catálogo
         window.location.href = "catalogo.html";
     });
+
+    // =======================
+    // ENTER PARA INGRESAR
+    // =======================
+    inputNombre.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            btnIngresar.click();
+        }
+    });
+
 });

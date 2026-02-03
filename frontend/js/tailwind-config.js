@@ -1,3 +1,11 @@
+// =======================
+// TAILWIND CONFIG
+// =======================
+// - Dark mode por clase
+// - Colores personalizados
+// - Tipografía principal
+// - Bordes redondeados custom
+
 tailwind.config = {
     darkMode: "class",
     theme: {

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Carrito de Compras</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind config -->
+    <script src="js/tailwind-config.js"></script>
+    <!-- Global styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111717] dark:text-gray-100 min-h-screen flex flex-col">
+    <!-- Sticky Top Navigation -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-[#f0f4f4] dark:border-gray-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+            <div class="flex items-center gap-4">
+                <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-xl">deployed_code</span>
+                </div>
+                <h2 class="text-[#111717] dark:text-white text-lg font-bold leading-tight tracking-tight">
+                    SoftServe
+                </h2>
+            </div>
+
+            <div class="flex flex-1 justify-end items-center gap-6 md:gap-8">
+                <nav class="hidden md:flex items-center gap-6">
+                    <!-- Botón Inicio -->
+                    <button id="btn-inicio"
+                        class="text-[#111717] dark:text-gray-300 text-base font-semibold hover:text-primary transition-colors flex items-center gap-2 px-2 py-1">
+                        <span class="material-symbols-outlined text-xl">
+                            home
+                        </span>
+                        Inicio
+                    </button>
+                    <!-- Botón Catálogo -->
+                    <a class="text-[#111717] dark:text-gray-300 text-base font-semibold hover:text-primary transition-colors px-2 py-1"
+                        href="catalogo.html">
+                        Catálogo
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8">
+        <!-- Page Heading -->
+        <div class="mb-8">
+            <h1 class="text-[#111717] dark:text-white text-4xl font-extrabold tracking-tight mb-2">Tu Carrito de Compras
+            </h1>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Cart Table (8 Columns) -->
+            <div class="lg:col-span-8 space-y-4">
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-[#dce4e5] dark:border-gray-800 shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr
+                                    class="bg-gray-50 dark:bg-gray-800/50 border-b border-[#dce4e5] dark:border-gray-800">
+                                    <th
+                                        class="px-6 py-4 text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                                        Producto</th>
+                                    <th
+                                        class="px-6 py-4 text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider text-center">
+                                        Cantidad</th>
+                                    <th
+                                        class="px-6 py-4 text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider text-right">
+                                        Precio Total</th>
+                                    <th
+                                        class="px-6 py-4 text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider text-center">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="carrito-body" class="divide-y divide-[#dce4e5] dark:divide-gray-800">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-gray-800/50 flex justify-between items-center border-t border-[#dce4e5] dark:border-gray-800">
+                        <button id="btn-continuar-comprando"
+                            class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                            <span class="material-symbols-outlined text-sm">arrow_back</span>
+                            Continuar Comprando
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Summary Card (4 Columns) -->
+            <div class="lg:col-span-4">
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-[#dce4e5] dark:border-gray-800 shadow-lg sticky top-24 overflow-hidden">
+                    <div class="p-6 border-b border-[#dce4e5] dark:border-gray-800">
+                        <h3 class="text-lg font-extrabold text-[#111717] dark:text-white">Resumen de Compra</h3>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="pt-4 border-[#dce4e5] dark:border-gray-800 flex justify-between items-end">
+                            <span class="text-xl font-extrabold text-[#111717] dark:text-white">Total</span>
+                            <span id="resumen-total" class="text-2xl font-black text-primary">$0</span>
+                        </div>
+                        <div class="pt-4">
+                            <button id="btn-finalizar"
+                                class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                                <span>Finalizar Compra</span>
+                                <span class="material-symbols-outlined">payments</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Confirmation Modal (Hidden by default) -->
+    <div class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="confirmation-modal">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="this.parentElement.classList.add('hidden')">
+        </div>
+        <!-- Modal Content -->
+        <div
+            class="relative bg-white dark:bg-gray-900 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-800">
+            <div class="p-8 text-center">
+                <div
+                    class="size-16 bg-primary/20 rounded-full flex items-center justify-center text-primary mx-auto mb-6">
+                    <span class="material-symbols-outlined text-4xl">shopping_cart_checkout</span>
+                </div>
+                <h2 class="text-2xl font-extrabold text-[#111717] dark:text-white mb-2">Confirmar Adquisición</h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8">Estás a punto de procesar la orden por un total de
+                    <strong id="orden-total"></strong>.
+                </p>
+                <div class="flex flex-col gap-3">
+                    <button id="btn-descargar-factura"
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg shadow-lg shadow-primary/20 transition-all">
+                        Generar Ticket
+                    </button>
+                    <button
+                        class="w-full bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 font-bold py-3 rounded-lg transition-all"
+                        onclick="document.getElementById('confirmation-modal').classList.add('hidden')">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="w-full py-8 text-center border-t border-gray-100 dark:border-gray-800">
+        <span class="text-xs mt-1 block opacity-75">© 2025 KeyServe Management System. Todos los derechos
+            reservados.</span>
+    </footer>
+    <script src="js/carrito.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/common.js"></script>
+
+</body>
+
+</html>

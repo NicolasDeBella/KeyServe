@@ -39,6 +39,36 @@
                 </div>
             </div>
 
+            <div class="flex items-center gap-3">
+                <!-- Botón Inicio -->
+                <button id="btn-inicio" class="flex items-center gap-1 bg-primary text-white
+                    px-2 py-3 rounded-full shadow-lg
+                    hover:scale-105 active:scale-95 transition-all group">
+                    <span class="material-symbols-outlined text-xl">
+                        home
+                    </span>
+                    <span class="font-bold text-sm uppercase tracking-wider">
+                        Inicio
+                    </span>
+                </button>
+                <!-- Floating Cart Button -->
+                <div>
+                    <button id="btn-ver-carrito"
+                        class="flex items-center gap-1 bg-primary text-white px-2 py-3 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all group">
+                        <div class="relative">
+                            <span class="material-symbols-outlined text-xl">shopping_cart</span>
+                            <span id="badge-carrito"
+                                class="absolute -top-2 -right-2 size-5 flex items-center justify-center rounded-full bg-red-500 text-[10px] font-bold hidden">
+                            </span>
+                        </div>
+                        <span class="font-bold text-sm uppercase tracking-wider">Ver Carrito</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                            arrow_forward
+                        </span>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </header>
 
@@ -80,27 +110,10 @@
             </nav>
         </div>
     </main>
-
-    <!-- Floating Cart Button -->
-    <div class="fixed bottom-8 right-8 z-[100]">
-        <button
-            class="flex items-center gap-3 bg-primary text-white px-6 py-4 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all group">
-            <div class="relative">
-                <span class="material-symbols-outlined text-2xl">shopping_cart</span>
-                <span
-                    class="absolute -top-2 -right-2 size-5 flex items-center justify-center rounded-full bg-red-500 text-[10px] font-bold">
-                    1
-                </span>
-            </div>
-            <span class="font-bold text-sm uppercase tracking-wider">Ver Carrito</span>
-            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                arrow_forward
-            </span>
-        </button>
-    </div>
-
     <!-- Page script -->
     <script src="js/catalogo.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/common.js"></script>
 </body>
 
 </html>
